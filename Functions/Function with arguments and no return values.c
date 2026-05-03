@@ -1,4 +1,4 @@
-// Function with arguments and no return values
+// -- Function with arguments and no return values -- //
 
 #include<stdio.h>
 int main() {
