@@ -1,4 +1,4 @@
-// Queue initialization and create function
+// -- Queue initialization and create function -- //
 
 #include<stdio.h>
 #include<stdlib.h>
