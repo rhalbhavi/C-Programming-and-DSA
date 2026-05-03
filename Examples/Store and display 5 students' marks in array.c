@@ -1,4 +1,4 @@
-// Store and display marks of 5 students using array
+// -- Store and display marks of 5 students using array -- //
 
 #include <stdio.h>
 int main() {
