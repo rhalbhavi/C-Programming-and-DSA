@@ -1,4 +1,4 @@
-// Double pointer
+// -- Double pointer -- //
 
 #include<stdio.h>
 int main() {
