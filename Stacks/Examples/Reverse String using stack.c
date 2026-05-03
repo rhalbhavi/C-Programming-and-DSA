@@ -1,4 +1,4 @@
-// Reverse string using stack implemented with arrays and structures
+// -- Reverse string using stack implemented with arrays and structures -- //
 
 #include <stdio.h>
 #include <string.h>
