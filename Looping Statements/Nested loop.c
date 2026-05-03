@@ -1,4 +1,4 @@
-// Nested loop
+// -- Nested loop -- //
 
 #include<stdio.h>
 // Main loop
