@@ -1,4 +1,4 @@
-// Pointers and arrays
+// -- Pointers and arrays -- //
 
 #include<stdio.h>
 int main() {
