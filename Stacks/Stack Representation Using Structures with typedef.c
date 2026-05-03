@@ -1,4 +1,4 @@
-// Stack Representation Using Structures with typedef
+// -- Stack Representation Using Structures with typedef -- //
 
 #include <stdio.h>
 
