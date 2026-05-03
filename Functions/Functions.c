@@ -1,4 +1,4 @@
-// Functions in C
+// -- Functions in C -- //
 
 // Header files
 #include<stdio.h>
