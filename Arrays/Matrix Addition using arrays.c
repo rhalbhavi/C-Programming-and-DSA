@@ -1,4 +1,4 @@
-// Matrix addition using arrays
+// -- Matrix addition using arrays -- //
 
 #include <stdio.h>
 #define ROWS 3
