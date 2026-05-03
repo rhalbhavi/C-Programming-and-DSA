@@ -1,4 +1,4 @@
-// continue statement
+// -- continue statement -- //
 
 #include<stdio.h>
 int main() {
