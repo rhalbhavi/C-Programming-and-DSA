@@ -1,4 +1,4 @@
-name: C Header Reformat
+name: C Header Reformat (Format Upgrade)
 
 on:
   workflow_dispatch:
