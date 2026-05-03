@@ -1,0 +1,66 @@
+name: C Header Reformat (Format Upgrade)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  commit-spree:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # Use secret token here
+          token: ${{ secrets.MY_COMMIT_TOKEN }}
+
+      - name: Config Git
+        run: |
+          git config --global user.name "rhalbhavi"
+          git config --global user.email "halbhaviriya@gmail.com"
+
+      - name: Upgrade Headers to 3-Dashes
+        run: |
+          find . -type f -name "*.c" -not -path "*/.*" -print0 | while IFS= read -r -d '' file; do
+            
+            if [ -f "$file" ]; then
+              first_line=$(head -n 1 "$file")
+
+              # Only process if it starts with //
+              if [[ "$first_line" == //* ]]; then
+                
+                # 1. Strip EVERYTHING (//, --, ---, spaces) to get the core text
+                # This ensures we don't end up with // --- -- Text -- --- //
+                temp=$(echo "$first_line" | sed 's|^//||' | sed 's|^[[:space:]-]*||')
+                clean_content=$(echo "$temp" | sed 's|[[:space:]/-]*$||')
+
+                if [ -z "$clean_content" ]; then clean_content="Source Code"; fi
+
+                # 2. Set the NEW target format with 3 dashes
+                new_header="// --- $clean_content --- //"
+                
+                # 3. Check if it's already updated
+                if [ "$first_line" == "$new_header" ]; then
+                  echo "Skipping $file: Already has 3-dash format."
+                  continue
+                fi
+
+                # 4. Apply change
+                sed -i "1s@.*@$new_header@" "$file"
+                
+                # 5. Commit with your identity
+                git add "$file"
+                git commit -m "style: upgrade header format for $(basename "$file")"
+                echo "✅ UPGRADED: $file"
+              fi
+            fi
+          done
+
+      - name: Sync and Push
+        run: |
+          # Pull latest to avoid non-fast-forward errors
+          git pull --rebase origin ${{ github.ref_name }}
+          git push origin ${{ github.ref_name }}
