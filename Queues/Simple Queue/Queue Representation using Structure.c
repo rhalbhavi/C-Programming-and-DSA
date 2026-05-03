@@ -1,4 +1,4 @@
-// -- Queue Representation using Structure --// -- //
+// -- Queue Representation using Structure -- //
 
 #include <stdio.h>
 #define MAX 100
