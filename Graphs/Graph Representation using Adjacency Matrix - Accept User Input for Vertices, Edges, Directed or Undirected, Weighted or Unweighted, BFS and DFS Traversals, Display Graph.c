@@ -1,4 +1,4 @@
-//--- Graph Representation using Adjacency Matrix --//
+// -- --- Graph Representation using Adjacency Matrix --// -- //
 // Input could be all possible graph types: Weighted / unweighted, Directed / undirected
 // Accept user input for number of edges, type of graph
 
