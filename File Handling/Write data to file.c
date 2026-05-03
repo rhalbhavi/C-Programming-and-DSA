@@ -1,4 +1,4 @@
-// Write data to file
+// -- Write data to file -- //
 
 #include <stdio.h>
 int main()
