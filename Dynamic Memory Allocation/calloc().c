@@ -1,4 +1,4 @@
-// calloc() - Allocates multiple memory blocks dynamically
+// -- calloc() - Allocates multiple memory blocks dynamically -- //
 
 #include<stdio.h>
 #include<stdlib.h>
