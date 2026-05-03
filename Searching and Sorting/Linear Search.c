@@ -1,4 +1,5 @@
 // -- Linear Search -- //
+
 #include <stdio.h>
 
 int linearSearch(int* arr, int n, int key) {
