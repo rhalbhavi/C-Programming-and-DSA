@@ -1,4 +1,4 @@
-// strcmp() - Compares strings
+// -- strcmp() - Compares strings -- //
 
 #include<stdio.h>
 #include<string.h>
