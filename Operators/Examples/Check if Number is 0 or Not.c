@@ -1,4 +1,4 @@
-// Check if number is 0 or not using NOT (!) operator
+// -- Check if number is 0 or not using NOT (!) operator -- //
 
 #include <stdio.h>
 void main() {
