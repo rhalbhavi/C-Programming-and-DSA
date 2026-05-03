@@ -1,4 +1,4 @@
-// Stack isFull() and isEmpty() functions
+// -- Stack isFull() and isEmpty() functions -- //
 
 #include <stdio.h>
 #define MAX 100
