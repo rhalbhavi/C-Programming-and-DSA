@@ -1,4 +1,4 @@
-// Perform arithmetic operations using nested functions
+// -- Perform arithmetic operations using nested functions -- //
 
 #include<stdio.h>
 void operations(int n1, int n2) {
