@@ -1,4 +1,4 @@
-// Print multiplication table of 5
+// -- Print multiplication table of 5 -- //
 
 #include<stdio.h>
 int printTable() {
