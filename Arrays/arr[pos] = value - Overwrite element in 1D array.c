@@ -1,4 +1,4 @@
-// arr[pos] = value - Overwrite element in 1D array
+// -- arr[pos] = value - Overwrite element in 1D array -- //
 
 #include <stdio.h>
 int main() {
