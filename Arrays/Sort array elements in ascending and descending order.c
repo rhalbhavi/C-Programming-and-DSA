@@ -1,4 +1,4 @@
-// Sort array elements in ascending/descending order
+// -- Sort array elements in ascending/descending order -- //
 
 #include <stdio.h>
 
