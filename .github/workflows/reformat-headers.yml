@@ -27,30 +27,33 @@ jobs:
             if [ -f "$file" ]; then
               first_line=$(head -n 1 "$file")
 
-              # 1. Check if it starts with //
+              # Only process if it starts with //
               if [[ "$first_line" == //* ]]; then
                 
-                # 2. SANITIZE: Remove existing //, --, and extra spaces/slashes from BOTH ends
-                # This turns "// -- -- Text -- // -- //" into just "Text"
-                clean_content=$(echo "$first_line" | sed 's|^//||; s|//[[:space:]]*$||; s|^[[:space:]-]*||; s|[[:space:]-]*$||')
+                # 1. Strip leading // and any leading spaces/dashes
+                temp=$(echo "$first_line" | sed 's|^//||' | sed 's|^[[:space:]-]*||')
 
-                # 3. Handle empty lines
+                # 2. Strip trailing // and any trailing spaces/dashes
+                # This uses a regex that looks for any combination of / or - or space at the end
+                clean_content=$(echo "$temp" | sed 's|[[:space:]/-]*$||')
+
+                # 3. Fallback if empty
                 if [ -z "$clean_content" ]; then clean_content="Source File"; fi
 
-                # 4. Construct the perfect format
+                # 4. Final target format
                 new_header="// -- $clean_content -- //"
                 
-                # 5. Skip if the file is already perfect (prevents redundant commits)
-                if [[ "$first_line" == "$new_header" ]]; then
+                # 5. Skip if it's already perfect
+                if [ "$first_line" == "$new_header" ]; then
                   continue
                 fi
 
-                # 6. Apply change and commit
+                # 6. Overwrite line 1
                 sed -i "1s@.*@$new_header@" "$file"
                 
                 git add "$file"
-                git commit -m "style: fix header formatting in $(basename "$file")"
-                echo "✅ Fixed and Committed: $file"
+                git commit -m "style: final header cleanup in $(basename "$file")"
+                echo "✅ Fixed: $file"
               fi
             fi
           done
