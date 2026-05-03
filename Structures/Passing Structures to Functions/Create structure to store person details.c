@@ -1,4 +1,4 @@
-// Define structure to store person information
+// -- Define structure to store person information -- //
 
 #include <stdio.h>
 struct Person {
