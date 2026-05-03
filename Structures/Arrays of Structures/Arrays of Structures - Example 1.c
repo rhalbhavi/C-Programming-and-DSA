@@ -1,4 +1,4 @@
-// Arrays of Structures - Example
+// -- Arrays of Structures - Example -- //
 
 #include<stdio.h>
 struct Book {
