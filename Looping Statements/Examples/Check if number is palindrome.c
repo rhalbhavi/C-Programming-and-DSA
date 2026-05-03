@@ -1,4 +1,4 @@
-// Check if number is palindrome
+// -- Check if number is palindrome -- //
 
 #include<stdio.h>
 int main() {
