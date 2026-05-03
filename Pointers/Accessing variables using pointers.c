@@ -1,4 +1,4 @@
-// Accessing variables using pointers
+// -- Accessing variables using pointers -- //
 
 #include<stdio.h>
 int main() {
