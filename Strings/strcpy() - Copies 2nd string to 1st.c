@@ -1,4 +1,4 @@
-// strcpy() - Copies 2nd string to 1st
+// -- strcpy() - Copies 2nd string to 1st -- //
 
 #include<stdio.h>
 #include<string.h>
