@@ -1,4 +1,4 @@
-// -- Graph Representation using Adjacency List --// -- //
+// -- Graph Representation using Adjacency List -- //
 
 #include <stdio.h>
 #include <stdlib.h>
