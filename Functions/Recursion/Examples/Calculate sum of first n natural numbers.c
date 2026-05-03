@@ -1,4 +1,4 @@
-// Calculate sum of first n natural numbers
+// -- Calculate sum of first n natural numbers -- //
 
 #include<stdio.h>
 int sumnos(int n) {
