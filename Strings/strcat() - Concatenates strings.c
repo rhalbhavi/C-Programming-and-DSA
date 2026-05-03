@@ -1,4 +1,4 @@
-// strcat() - Concatenates strings
+// -- strcat() - Concatenates strings -- //
 
 #include<stdio.h>
 #include<string.h>
