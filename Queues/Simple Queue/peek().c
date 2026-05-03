@@ -1,4 +1,4 @@
-// peek() -  Return front element of queue without removing it
+// -- peek() -  Return front element of queue without removing it -- //
 
 #include <stdio.h>
 #include <stdlib.h>
