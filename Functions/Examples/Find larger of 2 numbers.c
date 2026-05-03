@@ -1,4 +1,4 @@
-// FInd larger of 2 numbers
+// -- FInd larger of 2 numbers -- //
 
 #include<stdio.h>
 void larger(int n1, int n2) {
