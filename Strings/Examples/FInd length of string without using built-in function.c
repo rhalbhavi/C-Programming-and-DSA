@@ -1,4 +1,4 @@
-// Find length of string without using built-in function
+// -- Find length of string without using built-in function -- //
 
 #include <stdio.h>
 int main() {
