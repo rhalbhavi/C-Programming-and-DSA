@@ -1,4 +1,4 @@
-// Print pattern -
+// -- Print pattern - -- //
 
 #include<stdio.h>
 int main(){
