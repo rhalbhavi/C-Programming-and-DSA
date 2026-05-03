@@ -22,40 +22,40 @@ jobs:
 
       - name: Reformat .c Files
         run: |
-          # Use -print0 to handle all path types safely
-          # Exclude hidden directories (like .git) to avoid reading errors
           find . -type f -name "*.c" -not -path "*/.*" -print0 | while IFS= read -r -d '' file; do
             
-            # Check if it's a regular file and we have read permission
             if [ -f "$file" ]; then
-              
-              # Read the first line safely
               first_line=$(head -n 1 "$file")
 
-              # Logic: Starts with // AND doesn't already have the -- format
-              if [[ "$first_line" == //* ]] && [[ ! "$first_line" == *"// --"* ]]; then
+              # 1. Check if it starts with //
+              if [[ "$first_line" == //* ]]; then
                 
-                # Extract text and clean up whitespace
-                content=$(echo "$first_line" | sed 's|//||' | sed 's|^[[:space:]]*||' | sed 's|[[:space:]]*$||')
-                
-                # Placeholder if the line was just //
-                if [ -z "$content" ]; then content="Source File"; fi
+                # 2. SANITIZE: Remove existing //, --, and extra spaces/slashes from BOTH ends
+                # This turns "// -- -- Text -- // -- //" into just "Text"
+                clean_content=$(echo "$first_line" | sed 's|^//||; s|//[[:space:]]*$||; s|^[[:space:]-]*||; s|[[:space:]-]*$||')
 
-                new_header="// -- $content -- //"
+                # 3. Handle empty lines
+                if [ -z "$clean_content" ]; then clean_content="Source File"; fi
+
+                # 4. Construct the perfect format
+                new_header="// -- $clean_content -- //"
                 
-                # Replace line 1 using @ as a safe delimiter
+                # 5. Skip if the file is already perfect (prevents redundant commits)
+                if [[ "$first_line" == "$new_header" ]]; then
+                  continue
+                fi
+
+                # 6. Apply change and commit
                 sed -i "1s@.*@$new_header@" "$file"
                 
-                # Commit the change
                 git add "$file"
-                git commit -m "style: reformat header in $(basename "$file")"
-                echo "✅ Successfully committed: $file"
+                git commit -m "style: fix header formatting in $(basename "$file")"
+                echo "✅ Fixed and Committed: $file"
               fi
             fi
           done
 
       - name: Sync and Push
         run: |
-          # Pull any remote changes (like the workflow file itself) to avoid push rejection
           git pull --rebase origin ${{ github.ref_name }}
           git push origin ${{ github.ref_name }}
