@@ -1,4 +1,4 @@
-// strlen() - Returns length of string
+// -- strlen() - Returns length of string -- //
 
 #include<stdio.h>
 #include<string.h>
