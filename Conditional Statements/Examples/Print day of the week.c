@@ -1,4 +1,4 @@
-#include <stdio.h>
+// -- #include <stdio.h> -- //
 int main(){
     int day;
     printf("What day is it today (1-7)? ");
