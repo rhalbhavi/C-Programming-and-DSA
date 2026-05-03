@@ -1,4 +1,4 @@
-// Calculate square root and power of number
+// -- Calculate square root and power of number -- //
 
 #include <stdio.h>
 #include <math.h>
