@@ -1,4 +1,4 @@
-// Pointer pointing to another pointer
+// -- Pointer pointing to another pointer -- //
 
 #include <stdio.h>
 int main() {
