@@ -1,4 +1,4 @@
-// --- Circular Doubly Linked List (Without Tail) --- //
+// -- Circular Doubly Linked List (Without Tail) -- //
 
 #include <stdio.h>
 #include <stdlib.h>
