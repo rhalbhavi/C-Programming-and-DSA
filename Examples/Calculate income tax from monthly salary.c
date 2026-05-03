@@ -1,4 +1,4 @@
-// Calculate income tax from monthly salary
+// -- Calculate income tax from monthly salary -- //
 
 #include<stdio.h>
 int main () {
