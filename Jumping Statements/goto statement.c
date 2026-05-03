@@ -1,4 +1,4 @@
-// goto statement
+// -- goto statement -- //
 
 #include<stdio.h>
 int main() {
