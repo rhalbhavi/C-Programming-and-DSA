@@ -1,4 +1,4 @@
-// Structures with Pointers
+// -- Structures with Pointers -- //
 
 #include<stdio.h>
 struct Student {
