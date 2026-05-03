@@ -1,4 +1,4 @@
-// Calculate area of triangle, rectangle, square
+// -- Calculate area of triangle, rectangle, square -- //
 
 #include <stdio.h>
 #include <math.h>
