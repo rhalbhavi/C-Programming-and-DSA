@@ -1,4 +1,4 @@
-// Define structure to store rectangle dimensions and calculate area
+// -- Define structure to store rectangle dimensions and calculate area -- //
 
 #include <stdio.h>
 struct Rect {
