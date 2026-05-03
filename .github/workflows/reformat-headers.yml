@@ -14,6 +14,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Config Git
         run: |
@@ -22,7 +23,6 @@ jobs:
 
       - name: Reformat .c Files
         run: |
-          # Find only .c files in root and all subfolders
           FILES=$(find . -type f -name "*.c" -not -path "*/.*")
 
           if [ -z "$FILES" ]; then
@@ -31,38 +31,27 @@ jobs:
           fi
 
           for file in $FILES; do
-            # Get the first line
             first_line=$(head -n 1 "$file")
 
-            # Check if it starts with //
+            # Check if starts with //
             if [[ "$first_line" == //* ]]; then
-              
-              # Skip if it already has the -- format
               if [[ "$first_line" == *"// --"* ]]; then
-                echo "Skipping $file: Already formatted."
                 continue
               fi
 
-              # Extract text after // and trim spaces
               content=$(echo "$first_line" | sed 's|//||' | sed 's|^[[:space:]]*||' | sed 's|[[:space:]]*$||')
-              
-              # Fallback if the comment was empty
               if [ -z "$content" ]; then content="Source File"; fi
 
               new_header="// -- $content -- //"
-              
-              # Replace first line using @ as delimiter for safety
               sed -i "1s@.*@$new_header@" "$file"
               
-              # Individual commit for the leaderboard
               git add "$file"
               git commit -m "style: reformat header in $(basename "$file")"
-              echo "✅ Committed: $file"
-            else
-              echo "❌ Skipped $file: First line is not a // comment (Found: $first_line)"
             fi
           done
 
-      - name: Push Changes
+      - name: Sync and Push
         run: |
-          git push origin ${{ github.ref_name }} || echo "Nothing new to push"
+          # This handles the 'non-fast-forward' error by rebasing
+          git pull --rebase origin ${{ github.ref_name }}
+          git push origin ${{ github.ref_name }}
