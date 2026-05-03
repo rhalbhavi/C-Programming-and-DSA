@@ -1,4 +1,4 @@
-// Passing Structures to Functions using Pointer
+// -- Passing Structures to Functions using Pointer -- //
 
 #include<stdio.h>
 struct book {
