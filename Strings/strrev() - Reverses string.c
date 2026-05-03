@@ -1,4 +1,4 @@
-/* strrev() - Reverses string
+// -- /* strrev() - Reverses string -- //
 - Not part of standard C library (C99, C11, etc.), only available in Turbo C (old compilers) and MSVC (Windows) */
 
 #include<stdio.h>
