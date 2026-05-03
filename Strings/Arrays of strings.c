@@ -1,4 +1,4 @@
-// Arrays of strings
+// -- Arrays of strings -- //
 
 #include<stdio.h>
 #include<string.h>
