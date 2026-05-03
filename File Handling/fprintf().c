@@ -1,4 +1,4 @@
-// fprintf - Write data to file
+// -- fprintf - Write data to file -- //
 
 #include <stdio.h>
 #include<stdlib.h>
