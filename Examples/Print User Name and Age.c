@@ -1,4 +1,4 @@
-// Accept a user's full name and age, and display them in a formatted manner
+// -- Accept a user's full name and age, and display them in a formatted manner -- //
 
 #include <stdio.h>
 int main() {
