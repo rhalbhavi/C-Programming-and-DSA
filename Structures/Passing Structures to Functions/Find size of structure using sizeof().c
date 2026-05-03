@@ -1,4 +1,4 @@
-// Find size of structure using sizeof()
+// -- Find size of structure using sizeof() -- //
 
 #include <stdio.h>
 struct Student {
