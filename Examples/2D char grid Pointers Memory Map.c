@@ -1,4 +1,4 @@
-// Simulate a memory map using pointer-to-pointer and update values in a 2D char grid dynamically.
+// -- Simulate a memory map using pointer-to-pointer and update values in a 2D char grid dynamically. -- //
 
 #include <stdio.h>
 #include <stdlib.h>
