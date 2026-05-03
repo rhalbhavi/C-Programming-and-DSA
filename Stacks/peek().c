@@ -1,4 +1,4 @@
-// Stack peek() function
+// -- Stack peek() function -- //
 
 #include <stdio.h>
 #define MAX 100
