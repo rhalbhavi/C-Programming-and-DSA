@@ -1,4 +1,4 @@
-// isEmpty() - Checks if queue is empty
+// -- isEmpty() - Checks if queue is empty -- //
 
 #include <stdio.h>
 #include <stdlib.h>
