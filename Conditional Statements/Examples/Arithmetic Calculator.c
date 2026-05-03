@@ -1,4 +1,4 @@
-// Arithmetic Calculator 
+// -- Arithmetic Calculator -- //
 
 #include<stdio.h>
 int main(){
