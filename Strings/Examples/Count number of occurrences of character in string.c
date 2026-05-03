@@ -1,4 +1,4 @@
-// Count number of occurrences of character in string
+// -- Count number of occurrences of character in string -- //
 
 #include <stdio.h>
 #include <string.h>
