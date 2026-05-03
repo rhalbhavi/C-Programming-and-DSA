@@ -1,4 +1,4 @@
-// Define structure to store patient information
+// -- Define structure to store patient information -- //
 
 #include <stdio.h>
 struct dob {
