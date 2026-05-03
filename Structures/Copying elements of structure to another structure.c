@@ -1,4 +1,4 @@
-// Copying elements of structure to another structure
+// -- Copying elements of structure to another structure -- //
 
 #include<stdio.h>
 struct student {
