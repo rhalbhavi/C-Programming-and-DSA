@@ -1,4 +1,4 @@
-// Create structure using typedef keyword
+// -- Create structure using typedef keyword -- //
 
 #include <stdio.h>
 // Define structure - typedef struct { values }
