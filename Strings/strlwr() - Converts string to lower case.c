@@ -1,4 +1,4 @@
-/* strlwr() - Converts string to lower case
+// -- /* strlwr() - Converts string to lower case -- //
 - Not part of standard C library (C99, C11, etc.), only available in Turbo C (old compilers) and MSVC (Windows) */
 
 #include<stdio.h>
