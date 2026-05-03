@@ -1,4 +1,4 @@
-// Incrementing a pointer
+// -- Incrementing a pointer -- //
 
 #include<stdio.h>
 int main() {
