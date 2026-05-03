@@ -1,4 +1,4 @@
-// arr[pos] = value - Insert element into 1D array
+// -- arr[pos] = value - Insert element into 1D array -- //
 
 #include <stdio.h>
 int main() {
