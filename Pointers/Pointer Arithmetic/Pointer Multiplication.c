@@ -1,4 +1,4 @@
-// Pointer Multiplication
+// -- Pointer Multiplication -- //
 
 #include<stdio.h>
 int main() {
