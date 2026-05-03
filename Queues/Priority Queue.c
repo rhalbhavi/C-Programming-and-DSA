@@ -1,4 +1,4 @@
-#include <stdio.h>
+// -- #include <stdio.h> -- //
 #include <stdlib.h>
 
 // Define max queue size
