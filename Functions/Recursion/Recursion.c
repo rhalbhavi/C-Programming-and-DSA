@@ -1,4 +1,4 @@
-// Recursive function - function that calls itself
+// -- Recursive function - function that calls itself -- //
 
 // Function to calculate factorial of a number
 #include<stdio.h>
