@@ -1,4 +1,4 @@
-// dequeue() - Removes element at front of queue
+// -- dequeue() - Removes element at front of queue -- //
 
 #include <stdio.h>
 #include <stdlib.h>
