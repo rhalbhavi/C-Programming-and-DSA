@@ -1,4 +1,4 @@
-// Circular Queue using Arrays
+// -- Circular Queue using Arrays -- //
 
 #include <stdio.h>
 #include <stdlib.h>
