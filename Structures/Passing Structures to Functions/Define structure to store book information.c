@@ -1,4 +1,4 @@
-// Define structure to store book information
+// -- Define structure to store book information -- //
 
 #include <stdio.h>
 struct Book {
