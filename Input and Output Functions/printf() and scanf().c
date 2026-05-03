@@ -1,4 +1,4 @@
-// Input and Output Functions
+// -- Input and Output Functions -- //
 
 #include <stdio.h>
 int main() {
