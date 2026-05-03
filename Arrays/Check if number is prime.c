@@ -1,4 +1,4 @@
-// Check if number is prime
+// -- Check if number is prime -- //
 
 #include <stdio.h>
 #include <stdbool.h>
