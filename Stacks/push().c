@@ -1,4 +1,4 @@
-// Stack push() function
+// -- Stack push() function -- //
 
 #include <stdio.h>
 #define MAX 100
