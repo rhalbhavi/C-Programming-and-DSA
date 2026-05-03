@@ -1,4 +1,4 @@
-// sizeof() Operator
+// -- sizeof() Operator -- //
 // Finds size in bytes of a variable
 
 #include <stdio.h>
