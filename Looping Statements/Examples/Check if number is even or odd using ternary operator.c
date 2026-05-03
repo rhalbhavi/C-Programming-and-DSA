@@ -1,4 +1,4 @@
-// Check if number is even or odd using ternary operator
+// -- Check if number is even or odd using ternary operator -- //
 
 #include <stdio.h>
 int main() {
