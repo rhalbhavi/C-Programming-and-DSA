@@ -1,4 +1,4 @@
-// Matrix multiplication using arrays
+// -- Matrix multiplication using arrays -- //
 
 #include <stdio.h>
 #define ROWS 3
