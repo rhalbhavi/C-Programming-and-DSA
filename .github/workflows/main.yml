@@ -1,4 +1,4 @@
-name: C Header Reformat (Format Upgrade)
+name: C Header Reformat
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          # Use secret token here
+          # We still use the secret here
           token: ${{ secrets.MY_COMMIT_TOKEN }}
 
       - name: Config Git
@@ -25,42 +25,35 @@ jobs:
       - name: Upgrade Headers to 3-Dashes
         run: |
           find . -type f -name "*.c" -not -path "*/.*" -print0 | while IFS= read -r -d '' file; do
-            
             if [ -f "$file" ]; then
               first_line=$(head -n 1 "$file")
-
-              # Only process if it starts with //
               if [[ "$first_line" == //* ]]; then
-                
-                # 1. Strip EVERYTHING (//, --, ---, spaces) to get the core text
-                # This ensures we don't end up with // --- -- Text -- --- //
+                # Strip and clean
                 temp=$(echo "$first_line" | sed 's|^//||' | sed 's|^[[:space:]-]*||')
                 clean_content=$(echo "$temp" | sed 's|[[:space:]/-]*$||')
-
                 if [ -z "$clean_content" ]; then clean_content="Source Code"; fi
 
-                # 2. Set the NEW target format with 3 dashes
                 new_header="// --- $clean_content --- //"
                 
-                # 3. Check if it's already updated
                 if [ "$first_line" == "$new_header" ]; then
-                  echo "Skipping $file: Already has 3-dash format."
                   continue
                 fi
 
-                # 4. Apply change
                 sed -i "1s@.*@$new_header@" "$file"
-                
-                # 5. Commit with your identity
                 git add "$file"
-                git commit -m "style: upgrade header format for $(basename "$file")"
-                echo "✅ UPGRADED: $file"
+                git commit -m "style: upgrade header to 3-dash format for $(basename "$file")"
               fi
             fi
           done
 
-      - name: Sync and Push
+      - name: Authenticated Push
+        env:
+          # This pulls your token from the repo secrets
+          MY_TOKEN: ${{ secrets.MY_COMMIT_TOKEN }}
         run: |
-          # Pull latest to avoid non-fast-forward errors
+          # Inject the token into the remote URL to bypass 403
+          git remote set-url origin https://rhalbhavi:${MY_TOKEN}@github.com/rhalbhavi/C-Programming-and-Data-Structures.git
+          
+          # Pull latest and Push
           git pull --rebase origin ${{ github.ref_name }}
           git push origin ${{ github.ref_name }}
