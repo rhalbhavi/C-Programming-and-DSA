@@ -1,4 +1,4 @@
-// Structures
+// -- Structures -- //
   // Structure - Collection of variables of various data types
 
 #include<stdio.h>
