@@ -1,4 +1,4 @@
-// enqueue() - Adds element to rear of queue
+// -- enqueue() - Adds element to rear of queue -- //
 
 #include <stdio.h>
 #include <stdlib.h>
