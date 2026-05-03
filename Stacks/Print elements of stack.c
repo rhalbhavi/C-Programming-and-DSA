@@ -1,4 +1,4 @@
-// Print elements of stack using function
+// -- Print elements of stack using function -- //
 
 #include <stdio.h>
 #define MAX 100
