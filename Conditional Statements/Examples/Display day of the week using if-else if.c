@@ -1,4 +1,4 @@
-// Display day of the week using if-else if
+// -- Display day of the week using if-else if -- //
 
 #include <stdio.h>
 int main(){
