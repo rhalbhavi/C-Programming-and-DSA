@@ -1,4 +1,4 @@
-// Count vowels in string
+// -- Count vowels in string -- //
 
 #include <stdio.h>
 #include <string.h>
