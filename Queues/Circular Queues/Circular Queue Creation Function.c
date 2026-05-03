@@ -1,4 +1,4 @@
-// Circular Queue Creation Function
+// -- Circular Queue Creation Function -- //
 
 #include <stdio.h>
 #include <stdlib.h>
