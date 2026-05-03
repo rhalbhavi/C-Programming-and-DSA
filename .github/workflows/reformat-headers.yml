@@ -1,0 +1,45 @@
+name: Reformat Heading Comments
+
+on:
+  workflow_dispatch: # Allows starting the process manually
+
+jobs:
+  reformat-and-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to push commits back to the repo
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history for clean commits
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Process Files
+        run: |
+          find . -type f \( -name "*.js" -o -name "*.ts" -o -name "*.cpp" -o -name "*.cs" -o -name "*.java" \) -not -path "*/.*" | while read -r file; do
+            
+            first_line=$(head -n 1 "$file")
+
+            if [[ "$first_line" =~ ^//[[:space:]]*(.*) ]] && [[ ! "$first_line" =~ ^//\ --\ .*\ --\ // ]]; then
+              
+              content=$(echo "$first_line" | sed 's|^//[[:space:]]*||')
+              
+              new_header="// -- $content -- //"
+              
+              sed -i "1s|.*|$new_header|" "$file"
+              
+              git add "$file"
+              git commit -m "style: reformat header in $(basename "$file")"
+              echo "Reformatted and committed: $file"
+            fi
+          done
+
+      - name: Push Changes
+        run: |
+          git push origin ${{ github.ref_name }}
