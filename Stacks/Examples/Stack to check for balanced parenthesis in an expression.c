@@ -1,4 +1,4 @@
-// Structure-based implementation of stack to check for balanced parentheses in an expression
+// -- Structure-based implementation of stack to check for balanced parentheses in an expression -- //
 
 #include <stdio.h>
 #include <string.h>
