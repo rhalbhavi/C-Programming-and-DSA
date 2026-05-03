@@ -1,4 +1,4 @@
-/*
+// -- /* -- //
 This file is meant only to demonstrate how C generics can be useful in certain usecases when the
 type set you are dealing with is bounded. JSON works perfectly here because json can, 
 for the most part, only have 7 types: bool, int, float, string, array, JSON, NULL. 
