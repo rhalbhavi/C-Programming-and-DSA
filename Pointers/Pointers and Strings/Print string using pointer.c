@@ -1,4 +1,4 @@
-// Using pointers to handle strings
+// -- Using pointers to handle strings -- //
 
 #include <stdio.h>
 #include <string.h>
