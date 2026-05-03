@@ -1,4 +1,4 @@
-// Print star pattern using 2D Array
+// -- Print star pattern using 2D Array -- //
 
 #include <stdio.h>
 int main() {
