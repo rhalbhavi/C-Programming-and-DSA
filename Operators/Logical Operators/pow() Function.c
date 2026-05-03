@@ -1,4 +1,4 @@
-// Swap two numbers using 3rd variable
+// -- Swap two numbers using 3rd variable -- //
 
 #include <stdio.h>
 #include<math.h>
