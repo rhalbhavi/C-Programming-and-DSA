@@ -1,4 +1,4 @@
-// Allocate memory for integer array of size N
+// -- Allocate memory for integer array of size N -- //
 
 #include<stdio.h>
 #include<stdlib.h>
