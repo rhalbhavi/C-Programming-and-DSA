@@ -1,4 +1,4 @@
-// Count number of positive, negative, and zero values input by user
+// -- Count number of positive, negative, and zero values input by user -- //
 
 #include<stdio.h>
 int main() {
