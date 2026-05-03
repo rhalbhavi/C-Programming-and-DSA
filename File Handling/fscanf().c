@@ -1,4 +1,4 @@
-// fscanf - Read data in file
+// -- fscanf - Read data in file -- //
 
 #include <stdio.h>
 #include<stdlib.h>
