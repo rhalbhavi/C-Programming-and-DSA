@@ -1,4 +1,4 @@
-// Passing Structures to Functions using Pointers - Example
+// -- Passing Structures to Functions using Pointers - Example -- //
 
 #include<stdio.h>
 struct Car {
