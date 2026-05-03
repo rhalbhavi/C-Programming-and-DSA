@@ -17,51 +17,42 @@ jobs:
 
       - name: Config Git
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # This is the magic part that fixes your contribution graph
+          git config --global user.name "rhalbhavi"
+          git config --global user.email "halbhaviriya@gmail.com"
 
       - name: Reformat .c Files
         run: |
-          # Use a null-terminated find to handle all paths
           find . -type f -name "*.c" -not -path "*/.*" -print0 | while IFS= read -r -d '' file; do
             
             if [ -f "$file" ]; then
               first_line=$(head -n 1 "$file")
 
-              # 1. Clean the content aggressively
-              # Strips //, --, and spaces from start and end
-              temp=$(echo "$first_line" | sed 's|^//||' | sed 's|^[[:space:]-]*||')
-              clean_content=$(echo "$temp" | sed 's|[[:space:]/-]*$||')
+              if [[ "$first_line" == //* ]]; then
+                
+                # Cleaning the line
+                temp=$(echo "$first_line" | sed 's|^//||' | sed 's|^[[:space:]-]*||')
+                clean_content=$(echo "$temp" | sed 's|[[:space:]/-]*$||')
 
-              if [ -z "$clean_content" ]; then clean_content="Source File"; fi
+                if [ -z "$clean_content" ]; then clean_content="Source File"; fi
 
-              new_header="// -- $clean_content -- //"
-              
-              # 2. Check if the line actually needs changing
-              # If it's already perfect, we skip to avoid empty commits
-              if [ "$first_line" == "$new_header" ]; then
-                echo "Skipping $file: Already perfect."
-                continue
+                new_header="// -- $clean_content -- //"
+                
+                # Skip if no change is needed
+                if [ "$first_line" == "$new_header" ]; then
+                  continue
+                fi
+
+                # Apply and commit individually
+                sed -i "1s@.*@$new_header@" "$file"
+                git add "$file"
+                git commit -m "style: reformat header for $(basename "$file")"
+                echo "✅ Committed: $file"
               fi
-
-              # 3. Apply the change
-              sed -i "1s@.*@$new_header@" "$file"
-              
-              # 4. FORCE THE COMMIT
-              # We target the specific file to ensure Git sees the individual change
-              git add "$file"
-              
-              # We use a timestamp or filename in the message to make every commit unique
-              git commit -m "refactor(style): update header for $(basename "$file")"
-              
-              echo "✅ COMMITTED: $file"
             fi
           done
 
       - name: Sync and Push
         run: |
-          # Pull latest to avoid conflicts
           git pull --rebase origin ${{ github.ref_name }}
-          
-          # Push the whole stack of commits
           git push origin ${{ github.ref_name }}
