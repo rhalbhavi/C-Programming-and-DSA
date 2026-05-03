@@ -1,4 +1,4 @@
-// Check if string is palindrome
+// -- Check if string is palindrome -- //
 
 #include <stdio.h>
 #include <string.h>
