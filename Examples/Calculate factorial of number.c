@@ -1,4 +1,4 @@
-// Calculate factorial of number
+// -- Calculate factorial of number -- //
 
 #include<stdio.h>
 int fact() {
