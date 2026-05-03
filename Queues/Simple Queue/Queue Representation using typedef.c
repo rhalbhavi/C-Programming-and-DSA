@@ -1,4 +1,4 @@
-// Queue Representation using typedef
+// -- Queue Representation using typedef -- //
 
 #include <stdio.h>
 #define MAX 100
