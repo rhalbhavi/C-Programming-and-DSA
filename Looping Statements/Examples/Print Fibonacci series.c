@@ -1,4 +1,4 @@
-// Print Fibonacci series
+// -- Print Fibonacci series -- //
 
 #include<stdio.h>
 int main() {
