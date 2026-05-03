@@ -1,4 +1,4 @@
-// Queue representation using array
+// -- Queue representation using array -- //
 
 #include <stdio.h>
 #define MAX 100
