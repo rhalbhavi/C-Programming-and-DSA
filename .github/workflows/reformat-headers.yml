@@ -14,7 +14,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Config Git
         run: |
@@ -23,35 +22,40 @@ jobs:
 
       - name: Reformat .c Files
         run: |
-          FILES=$(find . -type f -name "*.c" -not -path "*/.*")
-
-          if [ -z "$FILES" ]; then
-            echo "No .c files found!"
-            exit 0
-          fi
-
-          for file in $FILES; do
-            first_line=$(head -n 1 "$file")
-
-            # Check if starts with //
-            if [[ "$first_line" == //* ]]; then
-              if [[ "$first_line" == *"// --"* ]]; then
-                continue
-              fi
-
-              content=$(echo "$first_line" | sed 's|//||' | sed 's|^[[:space:]]*||' | sed 's|[[:space:]]*$||')
-              if [ -z "$content" ]; then content="Source File"; fi
-
-              new_header="// -- $content -- //"
-              sed -i "1s@.*@$new_header@" "$file"
+          # Use -print0 to handle all path types safely
+          # Exclude hidden directories (like .git) to avoid reading errors
+          find . -type f -name "*.c" -not -path "*/.*" -print0 | while IFS= read -r -d '' file; do
+            
+            # Check if it's a regular file and we have read permission
+            if [ -f "$file" ]; then
               
-              git add "$file"
-              git commit -m "style: reformat header in $(basename "$file")"
+              # Read the first line safely
+              first_line=$(head -n 1 "$file")
+
+              # Logic: Starts with // AND doesn't already have the -- format
+              if [[ "$first_line" == //* ]] && [[ ! "$first_line" == *"// --"* ]]; then
+                
+                # Extract text and clean up whitespace
+                content=$(echo "$first_line" | sed 's|//||' | sed 's|^[[:space:]]*||' | sed 's|[[:space:]]*$||')
+                
+                # Placeholder if the line was just //
+                if [ -z "$content" ]; then content="Source File"; fi
+
+                new_header="// -- $content -- //"
+                
+                # Replace line 1 using @ as a safe delimiter
+                sed -i "1s@.*@$new_header@" "$file"
+                
+                # Commit the change
+                git add "$file"
+                git commit -m "style: reformat header in $(basename "$file")"
+                echo "✅ Successfully committed: $file"
+              fi
             fi
           done
 
       - name: Sync and Push
         run: |
-          # This handles the 'non-fast-forward' error by rebasing
+          # Pull any remote changes (like the workflow file itself) to avoid push rejection
           git pull --rebase origin ${{ github.ref_name }}
           git push origin ${{ github.ref_name }}
