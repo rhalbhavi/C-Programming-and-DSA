@@ -1,4 +1,4 @@
-// Calculate and print simple interest
+// -- Calculate and print simple interest -- //
 
 #include<stdio.h>
 int main (){
