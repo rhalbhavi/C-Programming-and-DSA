@@ -1,4 +1,4 @@
-// realloc() - Reallocates/Resizes memory block
+// -- realloc() - Reallocates/Resizes memory block -- //
 
 #include<stdio.h>
 #include<stdlib.h>
