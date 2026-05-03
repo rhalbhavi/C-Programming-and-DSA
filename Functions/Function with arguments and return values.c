@@ -1,4 +1,4 @@
-// Function with arguments and return values
+// -- Function with arguments and return values -- //
 
 #include<stdio.h>
 int square (int n);
