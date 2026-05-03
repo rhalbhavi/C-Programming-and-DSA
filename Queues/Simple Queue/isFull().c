@@ -1,4 +1,4 @@
-// isFull() - Checks if queue is full
+// -- isFull() - Checks if queue is full -- //
 
 #include <stdio.h>
 #include <stdlib.h>
