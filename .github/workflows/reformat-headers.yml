@@ -1,45 +1,68 @@
-name: Reformat Heading Comments
+name: C Header Reformat (Commit Boost)
 
 on:
-  workflow_dispatch: # Allows starting the process manually
+  workflow_dispatch:
 
 jobs:
-  reformat-and-commit:
+  commit-spree:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to push commits back to the repo
+      contents: write
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetches all history for clean commits
+          fetch-depth: 0
 
-      - name: Configure Git
+      - name: Config Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Process Files
+      - name: Reformat .c Files
         run: |
-          find . -type f \( -name "*.js" -o -name "*.ts" -o -name "*.cpp" -o -name "*.cs" -o -name "*.java" \) -not -path "*/.*" | while read -r file; do
-            
+          # Find only .c files in root and all subfolders
+          FILES=$(find . -type f -name "*.c" -not -path "*/.*")
+
+          if [ -z "$FILES" ]; then
+            echo "No .c files found!"
+            exit 0
+          fi
+
+          for file in $FILES; do
+            # Get the first line
             first_line=$(head -n 1 "$file")
 
-            if [[ "$first_line" =~ ^//[[:space:]]*(.*) ]] && [[ ! "$first_line" =~ ^//\ --\ .*\ --\ // ]]; then
+            # Check if it starts with //
+            if [[ "$first_line" == //* ]]; then
               
-              content=$(echo "$first_line" | sed 's|^//[[:space:]]*||')
+              # Skip if it already has the -- format
+              if [[ "$first_line" == *"// --"* ]]; then
+                echo "Skipping $file: Already formatted."
+                continue
+              fi
+
+              # Extract text after // and trim spaces
+              content=$(echo "$first_line" | sed 's|//||' | sed 's|^[[:space:]]*||' | sed 's|[[:space:]]*$||')
               
+              # Fallback if the comment was empty
+              if [ -z "$content" ]; then content="Source File"; fi
+
               new_header="// -- $content -- //"
               
-              sed -i "1s|.*|$new_header|" "$file"
+              # Replace first line using @ as delimiter for safety
+              sed -i "1s@.*@$new_header@" "$file"
               
+              # Individual commit for the leaderboard
               git add "$file"
               git commit -m "style: reformat header in $(basename "$file")"
-              echo "Reformatted and committed: $file"
+              echo "✅ Committed: $file"
+            else
+              echo "❌ Skipped $file: First line is not a // comment (Found: $first_line)"
             fi
           done
 
       - name: Push Changes
         run: |
-          git push origin ${{ github.ref_name }}
+          git push origin ${{ github.ref_name }} || echo "Nothing new to push"
