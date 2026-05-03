@@ -1,4 +1,4 @@
-// Arithmetic Expression - Example
+// -- Arithmetic Expression - Example -- //
 
 #include <stdio.h>
 int main() {
