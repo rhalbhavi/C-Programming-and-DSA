@@ -22,43 +22,46 @@ jobs:
 
       - name: Reformat .c Files
         run: |
+          # Use a null-terminated find to handle all paths
           find . -type f -name "*.c" -not -path "*/.*" -print0 | while IFS= read -r -d '' file; do
             
             if [ -f "$file" ]; then
               first_line=$(head -n 1 "$file")
 
-              # Only process if it starts with //
-              if [[ "$first_line" == //* ]]; then
-                
-                # 1. Strip leading // and any leading spaces/dashes
-                temp=$(echo "$first_line" | sed 's|^//||' | sed 's|^[[:space:]-]*||')
+              # 1. Clean the content aggressively
+              # Strips //, --, and spaces from start and end
+              temp=$(echo "$first_line" | sed 's|^//||' | sed 's|^[[:space:]-]*||')
+              clean_content=$(echo "$temp" | sed 's|[[:space:]/-]*$||')
 
-                # 2. Strip trailing // and any trailing spaces/dashes
-                # This uses a regex that looks for any combination of / or - or space at the end
-                clean_content=$(echo "$temp" | sed 's|[[:space:]/-]*$||')
+              if [ -z "$clean_content" ]; then clean_content="Source File"; fi
 
-                # 3. Fallback if empty
-                if [ -z "$clean_content" ]; then clean_content="Source File"; fi
-
-                # 4. Final target format
-                new_header="// -- $clean_content -- //"
-                
-                # 5. Skip if it's already perfect
-                if [ "$first_line" == "$new_header" ]; then
-                  continue
-                fi
-
-                # 6. Overwrite line 1
-                sed -i "1s@.*@$new_header@" "$file"
-                
-                git add "$file"
-                git commit -m "style: final header cleanup in $(basename "$file")"
-                echo "✅ Fixed: $file"
+              new_header="// -- $clean_content -- //"
+              
+              # 2. Check if the line actually needs changing
+              # If it's already perfect, we skip to avoid empty commits
+              if [ "$first_line" == "$new_header" ]; then
+                echo "Skipping $file: Already perfect."
+                continue
               fi
+
+              # 3. Apply the change
+              sed -i "1s@.*@$new_header@" "$file"
+              
+              # 4. FORCE THE COMMIT
+              # We target the specific file to ensure Git sees the individual change
+              git add "$file"
+              
+              # We use a timestamp or filename in the message to make every commit unique
+              git commit -m "refactor(style): update header for $(basename "$file")"
+              
+              echo "✅ COMMITTED: $file"
             fi
           done
 
       - name: Sync and Push
         run: |
+          # Pull latest to avoid conflicts
           git pull --rebase origin ${{ github.ref_name }}
+          
+          # Push the whole stack of commits
           git push origin ${{ github.ref_name }}
