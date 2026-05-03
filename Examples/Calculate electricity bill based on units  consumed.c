@@ -1,4 +1,4 @@
-// Calculate electricity bill using switch case
+// -- Calculate electricity bill using switch case -- //
 
 #include <stdio.h>
 int main() {
