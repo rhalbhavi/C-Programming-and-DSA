@@ -1,4 +1,4 @@
-// Calculate sum of elements in array
+// -- Calculate sum of elements in array -- //
 
 #include<stdio.h>
 int main() {
