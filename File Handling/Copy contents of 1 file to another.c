@@ -1,4 +1,4 @@
-// Copy contents of one file to another
+// -- Copy contents of one file to another -- //
 
 #include <stdio.h>
 int main() {
