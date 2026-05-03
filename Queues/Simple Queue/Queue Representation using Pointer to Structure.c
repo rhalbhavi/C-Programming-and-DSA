@@ -1,4 +1,4 @@
-// Queue Representation using Pointer to Structure
+// -- Queue Representation using Pointer to Structure -- //
 
 #include <stdio.h>
 #include <stdlib.h> // Required for malloc() and free()
