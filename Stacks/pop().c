@@ -1,4 +1,4 @@
-// Stack pop() function
+// -- Stack pop() function -- //
 
 #include <stdio.h>
 #define MAX 100
