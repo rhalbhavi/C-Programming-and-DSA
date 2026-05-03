@@ -1,4 +1,4 @@
-// --- Circular Doubly Linked List (CDLL) -- //
+// -- Circular Doubly Linked List (CDLL) -- //
 
 #include <stdio.h>
 #include <stdlib.h>
