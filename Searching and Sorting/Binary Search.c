@@ -1,4 +1,4 @@
-//-- Binary Search --//
+// -- -- Binary Search --// -- //
 // Binary search is an efficient divide-and-conquer algorithm used to quickly find a target value within a sorted array. It works by repeatedly halving the search space until the target is found or the search interval becomes empty
 
 #include <stdio.h>
