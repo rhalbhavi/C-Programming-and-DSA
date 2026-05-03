@@ -1,4 +1,4 @@
-// Calculate and display average and total of subject marks
+// -- Calculate and display average and total of subject marks -- //
 
 #include <stdio.h>
 int main() {
