@@ -1,4 +1,4 @@
-// Circular Queue using Structures with typedef
+// -- Circular Queue using Structures with typedef -- //
 
 #include <stdio.h>
 #include <stdlib.h>
