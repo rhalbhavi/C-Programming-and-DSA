@@ -1,4 +1,4 @@
-// Calculate tax if salary>10000
+// -- Calculate tax if salary>10000 -- //
 
 #include<stdio.h>
 int main () {
