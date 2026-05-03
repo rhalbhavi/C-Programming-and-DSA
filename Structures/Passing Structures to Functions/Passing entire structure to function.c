@@ -1,4 +1,4 @@
-// Passing entire structure to function
+// -- Passing entire structure to function -- //
 
 #include <stdio.h>
 struct student {
