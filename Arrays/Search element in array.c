@@ -1,4 +1,4 @@
-// Search element in array
+// -- Search element in array -- //
 
 #include<stdio.h>
 int main() {
