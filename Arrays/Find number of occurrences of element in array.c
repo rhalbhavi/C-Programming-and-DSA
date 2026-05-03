@@ -1,4 +1,4 @@
-// Find number of occurrences of element in array
+// -- Find number of occurrences of element in array -- //
 
 #include<stdio.h>
 int main() {
