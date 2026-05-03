@@ -1,4 +1,4 @@
-// Simulate browser backtracking using a single stack of URLs using arrays
+// -- Simulate browser backtracking using a single stack of URLs using arrays -- //
 
 #include <stdio.h>
 # include<string.h>
