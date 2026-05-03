@@ -1,4 +1,4 @@
-// Print multiplication table of number entered by user
+// -- Print multiplication table of number entered by user -- //
 
 #include <stdio.h>
 int main() {
