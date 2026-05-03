@@ -1,4 +1,4 @@
-// Take user input for array elements
+// -- Take user input for array elements -- //
 
 #include<stdio.h>
 int main() {
