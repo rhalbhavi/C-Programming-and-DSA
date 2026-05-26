@@ -36,7 +36,7 @@ Due to its ability to directly interact with hardware and memory, C is the backb
 * [Looping Statements](https://github.com/3riy/C/tree/main/Looping%20Statements)
 * [Jumping Statements](https://github.com/3riy/C/tree/main/Jumping%20Statements)
 
-### 🧩 Data Structures & Memory/Files
+### 🧩 Data Structures (Arrays, Strings), Pointers, Memory Management, File Handling
 * [Arrays](https://github.com/3riy/C/tree/main/Arrays)
 * [Strings](https://github.com/3riy/C/tree/main/Strings)
 * [Functions](https://github.com/3riy/C/tree/main/Functions)
@@ -44,7 +44,7 @@ Due to its ability to directly interact with hardware and memory, C is the backb
 * [Dynamic Memory Allocation](https://github.com/3riy/C/tree/main/Dynamic%20Memory%20Allocation)
 * [File Handling](https://github.com/3riy/C/tree/main/File%20Handling)
 
-### 🏛️ Advanced Data Structures
+### 🧮 Advanced Data Structures, Searching & Sorting Algorithms
 * [Structures](https://github.com/3riy/C/tree/main/Structures)
 * [Unions](https://github.com/3riy/C/tree/main/Unions)
 * [Linked Lists](https://github.com/3riy/C/tree/main/Linked%20Lists)
