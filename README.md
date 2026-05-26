@@ -1,6 +1,6 @@
 <div align="center">
 
-# C Programming
+# C Programming, Data Structures and Algorithms
 
 </div>
 
