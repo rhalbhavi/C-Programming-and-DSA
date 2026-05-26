@@ -10,6 +10,8 @@
 
 This repository includes structured C programs organized by concept, making it ideal for learning or quick reference.
 
+---
+
 ## 🚀 Real-World Applications
 
 Due to its ability to directly interact with hardware and memory, C is the backbone of modern computing. Here are its primary applications:
