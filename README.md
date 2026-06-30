@@ -27,36 +27,36 @@ Due to its ability to directly interact with hardware and memory, C is the backb
 ## 📁 Sub-topics
 
 ### 🛠️ Core Foundations
-* [Variables](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Variables)
-* [Input and Output Functions](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Input%20and%20Output%20Functions)
-* [Operators](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Operators)
-* [Type Conversion](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Type%20Conversion)
-* [Preprocessor Directives and Macros](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Preprocessor%20Directives%20and%20Macros)
+* [Variables](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Variables)
+* [Input and Output Functions](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Input%20and%20Output%20Functions)
+* [Operators](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Operators)
+* [Type Conversion](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Type%20Conversion)
+* [Preprocessor Directives and Macros](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Preprocessor%20Directives%20and%20Macros)
 
 ### 🔄 Control Flow
-* [Conditional Statements](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Conditional%20Statements)
-* [Looping Statements](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Looping%20Statements)
-* [Jumping Statements](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Jumping%20Statements)
+* [Conditional Statements](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Conditional%20Statements)
+* [Looping Statements](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Looping%20Statements)
+* [Jumping Statements](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Jumping%20Statements)
 
 ### 🧩 Data Structures (Arrays, Strings), Pointers, Memory Management, File Handling
-* [Arrays](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Arrays)
-* [Strings](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Strings)
-* [Functions](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Functions)
-* [Pointers](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Pointers)
-* [Dynamic Memory Allocation](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Dynamic%20Memory%20Allocation)
-* [File Handling](https://github.com/riyahal/C-Programming-and-DSA/tree/main/File%20Handling)
+* [Arrays](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Arrays)
+* [Strings](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Strings)
+* [Functions](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Functions)
+* [Pointers](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Pointers)
+* [Dynamic Memory Allocation](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Dynamic%20Memory%20Allocation)
+* [File Handling](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/File%20Handling)
 
 ### 🧮 Advanced Data Structures, Searching & Sorting Algorithms
-* [Structures](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Structures)
-* [Unions](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Unions)
-* [Linked Lists](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Linked%20Lists)
-* [Stacks](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Stacks)
-* [Queues](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Queues)
-* [Graphs](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Graphs)
-* [Searching and Sorting](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Searching%20and%20Sorting)
+* [Structures](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Structures)
+* [Unions](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Unions)
+* [Linked Lists](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Linked%20Lists)
+* [Stacks](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Stacks)
+* [Queues](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Queues)
+* [Graphs](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Graphs)
+* [Searching and Sorting](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Searching%20and%20Sorting)
 
 ### General Examples
-* [General Examples](https://github.com/riyahal/C-Programming-and-DSA/tree/main/Examples)
+* [General Examples](https://github.com/rhalbhavi/C-Programming-and-DSA/tree/main/Examples)
 
 ---
 
@@ -65,7 +65,7 @@ Due to its ability to directly interact with hardware and memory, C is the backb
 1.  Run the `git clone` command to make a copy of this repository on your local machine:
 
     ```bash
-    git clone [https://github.com/riyahal/C-Programming-and-DSA](https://github.com/riyahal/C-Programming-and-DSA)
+    git clone [https://github.com/rhalbhavi/C-Programming-and-DSA](https://github.com/rhalbhavi/C-Programming-and-DSA)
     ```
 
 2.  Navigate to the folder:
